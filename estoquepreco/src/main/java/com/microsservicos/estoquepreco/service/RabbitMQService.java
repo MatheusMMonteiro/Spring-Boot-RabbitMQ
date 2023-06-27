@@ -18,6 +18,7 @@ public class RabbitMQService {
 	public void enviaMensagem(String nomeFila, Object mensagem) {
 	try {
 		String json = this.objectMapper.writeValueAsString(mensagem);
+		
 		this.rabbitTemplate.convertAndSend(nomeFila,json);
 		
 	} catch (Exception e) {
